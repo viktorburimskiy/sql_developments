@@ -1,0 +1,3 @@
+echo on
+cd C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Teradata Client 16.20\
+bteq .RUN FILE = C:\Users\Burimskiy-VA\Documents\work\Teradata\Scripts\BTEQ import\python_result_script.txt

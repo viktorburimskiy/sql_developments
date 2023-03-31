@@ -1,0 +1,19 @@
+.LOGON localhost/Burimskii-VA,password
+.EXPORT FILE= "c:\temp\BurimskiyV_test15.txt";
+.SET SESSION CHARSET "UTF8";
+.SET WIDTH 4000;
+.SET SEPARATOR ";";
+.SET TITLEDASHES Off;
+WITH cte AS
+(
+	SELECT 
+		id
+		,str
+	FROM "tst".BurimskiyV_test01
+)
+SELECT str (TITLE '')
+FROM TABLE
+	(CSV(NEW VARIANT_TYPE(cte.id, cte.str), ',','"') RETURNS (str VARCHAR(32000) CHARACTER SET Unicode)) AS t1;
+.EXPORT RESET;
+.LOGOFF;
+.EXIT;

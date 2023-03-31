@@ -1,0 +1,623 @@
+.SET SESSION CHARSET "UTF8";
+.SET RECORD VARTEXT "|";
+.LOGON localhost/user, pass; 
+DATABASE "tst";
+	
+DROP TABLE "tst".burimskiyv_360_temp2;       
+DROP TABLE "tst".burimskiyv_360_temp2_UV ;      
+DROP TABLE "tst".burimskiyv_360_temp2_ET ;      
+         
+
+CREATE MULTISET TABLE "tst".burimskiyv_360_temp2 (
+	report_date DATE,
+	i_pernr INTEGER,
+	pos_id INTEGER,
+	cnt_penalty_m INTEGER,
+	cnt_penalty_vig_m INTEGER,
+	cnt_penalty_zam_m INTEGER,
+	cnt_penalty_vzi_m INTEGER,
+	cnt_penalty_y INTEGER,
+	cnt_penalty_vig_y INTEGER,
+	cnt_penalty_zam_y INTEGER,
+	cnt_penalty_vzi_y INTEGER,
+	cnt_penalty_all INTEGER,
+	cnt_penalty_vig_all INTEGER,
+	cnt_penalty_zam_all INTEGER,
+	cnt_penalty_vzi_all INTEGER,
+	cnt_penalty_pos_id_y INTEGER,
+	cnt_penalty_vig_pos_id_y INTEGER,
+	cnt_penalty_zam_pos_id_y INTEGER,
+	cnt_penalty_vzi_pos_id_y INTEGER,
+	plan_time_hours DECIMAL(15,2),
+	fact_time_hours DECIMAL(15,2),
+	plan_fact_time_hours DECIMAL(15,2),
+	otpusk_m BIGINT,
+	otpusk_y BIGINT,
+	otpusk_pos_id_y BIGINT,
+	proguli_m BIGINT,
+	proguli_y BIGINT,
+	proguli_pos_id_y BIGINT,
+	bolnichnii_m BIGINT,
+	bolnichnii_y BIGINT,
+	bolnichnii_pos_id_y BIGINT,
+	otpusk_bez_opl_m BIGINT,
+	otpusk_bez_opl_y BIGINT,
+	otpusk_bez_opl_pos_id_y BIGINT,
+	otpusk_po_uhodu_za_reb_m BIGINT,
+	otpusk_po_uhodu_za_reb_y BIGINT,
+	otpusk_po_uhodu_za_reb_pos_id_y BIGINT,
+	neyavki_po_nev_prichinam_m BIGINT,
+	neyavki_po_nev_prichinam_y BIGINT,
+	neyavki_po_nev_prichinam_pos_id_y BIGINT,
+	otsutstviya_po_uv_prichinam_m BIGINT,
+	otsutstviya_po_uv_prichinam_y BIGINT,
+	otsutstviya_po_uv_prichinam_pos_id_y BIGINT,
+	povishenie_kvalif_m BIGINT,
+	povishenie_kvalif_y BIGINT,
+	povishenie_kvalif_pos_id_y BIGINT,
+	prostoi_m BIGINT,
+	prostoi_y BIGINT,
+	prostoi_pos_id_y BIGINT,
+	pererabotka_m BIGINT,
+	pererabotka_y BIGINT,
+	pererabotka_pos_id_y BIGINT,
+	komandirovka_m BIGINT,
+	komandirovka_y BIGINT,
+	komandirovka_pos_id_y BIGINT,
+	bolnichnii_bez_opl_m BIGINT,
+	bolnichnii_bez_opl_y BIGINT,
+	bolnichnii_bez_opl_pos_id_y BIGINT,
+	uchebnii_otpusk_m BIGINT,
+	uchebnii_otpusk_y BIGINT,
+	uchebnii_otpusk_pos_id_y BIGINT,
+	repl_days INTEGER,
+	sovm_days INTEGER,
+	fact_cnt DECIMAL(10,4),
+	pos_LOS_days INTEGER,
+	len_of_svc_days INTEGER,
+	pos_num DECIMAL(10,6),
+	work_y_with_boss INTEGER,
+	len_of_svc_y_boss INTEGER,
+	len_of_svc_y_manager INTEGER,
+	pos_grade_num SMALLINT,
+	boss_i_pernr INTEGER,
+	lvl_04_code INTEGER,
+	action_x1_dt DATE,
+	action_x3_dt DATE,
+	action_y2_dt DATE,
+	action_t1_dt DATE,
+	action_t3_dt DATE,
+	action_z7_dt DATE,
+	action_x1_in_report_dt SMALLINT,
+	action_x3_in_report_dt SMALLINT,
+	action_y2_in_report_dt SMALLINT,
+	action_t1_in_report_dt SMALLINT,
+	action_t3_in_report_dt SMALLINT,
+	action_z7_in_report_dt SMALLINT,
+	education INTEGER,
+	education_in_rd SMALLINT,
+	position_name VARCHAR(36) CHARACTER SET Unicode NOT CaseSpecific,
+	TB_name VARCHAR(250) CHARACTER SET Unicode NOT CaseSpecific,
+	fblock_oss SMALLINT,
+	et_pos_id INTEGER,
+	type_pos_id INTEGER,
+	org_id INTEGER,
+	org_type_code INTEGER,
+	podr_type_code SMALLINT,
+	org_level INTEGER,
+	org_type_level SMALLINT,
+	town VARCHAR(100) CHARACTER SET Unicode NOT CaseSpecific,
+	tb_num VARCHAR(10) CHARACTER SET Unicode NOT CaseSpecific,
+	vsp_num VARCHAR(10) CHARACTER SET Unicode NOT CaseSpecific,
+	gosb_num VARCHAR(10) CHARACTER SET Unicode NOT CaseSpecific,
+	osb_num VARCHAR(10) CHARACTER SET Unicode NOT CaseSpecific,
+	is_boss INTEGER,
+	boss_pos_id INTEGER,
+	type_pos_name VARCHAR(80) CHARACTER SET Unicode NOT CaseSpecific,
+	pos_name VARCHAR(1333) CHARACTER SET Unicode NOT CaseSpecific,
+	et_pos_name VARCHAR(1333) CHARACTER SET Unicode NOT CaseSpecific,
+	balance_code VARCHAR(10) CHARACTER SET Unicode NOT CaseSpecific,
+	start_date_fork DATE,
+	stop_date_fork DATE ,
+	org_in_date DATE ,
+	is_urm INTEGER,
+	is_archaic_pos INTEGER,
+	pos_in_date DATE ,
+	pos_out_date DATE ,
+	boss_org_id INTEGER,
+	is_on_trial INTEGER,
+	age_y INTEGER,
+	sber_LOS_days INTEGER,
+	wrk_LOS_days INTEGER,
+	gender VARCHAR(20) CHARACTER SET Unicode NOT CaseSpecific,
+	trial_start_date DATE ,
+	trial_end_date DATE,
+	staff_group VARCHAR(50) CHARACTER SET Unicode NOT CaseSpecific,
+	is_agr_timed INTEGER,
+	agr_end_date DATE,
+	surv_type VARCHAR(50) CHARACTER SET Unicode NOT CaseSpecific,
+	sber_LOS_cnt_days INTEGER,
+	is_parental_leave INTEGER,
+	staff_category VARCHAR(50) CHARACTER SET Unicode NOT CaseSpecific,
+	is_long_abs INTEGER,
+	boss_age_y INTEGER,
+	avg_age_y_org_id FLOAT,
+	avg_age_y_et_pos_id FLOAT,
+	avg_sber_los_days_org_id FLOAT,
+	avg_sber_los_days_et_pos_id FLOAT,
+	diff_age_with_boss INTEGER,
+	subord_cnt_m INTEGER,
+	subord_cnt_prev_m INTEGER,
+	subord_cnt_in_m INTEGER,
+	subord_cnt_out_m INTEGER,
+	subord_cnt_1y_max INTEGER,
+	subord_cnt_1y_min INTEGER,
+	subord_cnt_in_1y INTEGER,
+	subord_cnt_out_1y INTEGER,
+	action_date DATE,
+	fired_total_in_report_dt SMALLINT,
+	fired_staff_in_report_dt SMALLINT)
+PRIMARY INDEX idx ( report_date ,i_pernr ,pos_id )
+PARTITION BY Range_N(report_date  BETWEEN DATE '2017-01-01' AND DATE '9999-12-31' EACH INTERVAL '1' MONTH ,
+ NO RANGE OR UNKNOWN);
+
+RECORD 2;
+
+DEFINE
+	report_date (VARCHAR(10))
+	,i_pernr (VARCHAR(10))
+	,pos_id (VARCHAR(10))
+	,cnt_penalty_m (VARCHAR(10))
+	,cnt_penalty_vig_m (VARCHAR(10))
+	,cnt_penalty_zam_m (VARCHAR(10))
+	,cnt_penalty_vzi_m (VARCHAR(10))
+	,cnt_penalty_y (VARCHAR(10))
+	,cnt_penalty_vig_y (VARCHAR(10))
+	,cnt_penalty_zam_y (VARCHAR(10))
+	,cnt_penalty_vzi_y (VARCHAR(10))
+	,cnt_penalty_all (VARCHAR(10))
+	,cnt_penalty_vig_all (VARCHAR(10))
+	,cnt_penalty_zam_all (VARCHAR(10))
+	,cnt_penalty_vzi_all (VARCHAR(10))
+	,cnt_penalty_pos_id_y (VARCHAR(10))
+	,cnt_penalty_vig_pos_id_y (VARCHAR(10))
+	,cnt_penalty_zam_pos_id_y (VARCHAR(10))
+	,cnt_penalty_vzi_pos_id_y (VARCHAR(10))
+	,plan_time_hours (VARCHAR(16))
+	,fact_time_hours (VARCHAR(16))
+	,plan_fact_time_hours (VARCHAR(16))
+	,otpusk_m (VARCHAR(20))
+	,otpusk_y (VARCHAR(20))
+	,otpusk_pos_id_y (VARCHAR(20))
+	,proguli_m (VARCHAR(20))
+	,proguli_y (VARCHAR(20))
+	,proguli_pos_id_y (VARCHAR(20))
+	,bolnichnii_m (VARCHAR(20))
+	,bolnichnii_y (VARCHAR(20))
+	,bolnichnii_pos_id_y (VARCHAR(20))
+	,otpusk_bez_opl_m (VARCHAR(20))
+	,otpusk_bez_opl_y (VARCHAR(20))
+	,otpusk_bez_opl_pos_id_y (VARCHAR(20))
+	,otpusk_po_uhodu_za_reb_m (VARCHAR(20))
+	,otpusk_po_uhodu_za_reb_y (VARCHAR(20))
+	,otpusk_po_uhodu_za_reb_pos_id_y (VARCHAR(20))
+	,neyavki_po_nev_prichinam_m (VARCHAR(20))
+	,neyavki_po_nev_prichinam_y (VARCHAR(20))
+	,neyavki_po_nev_prichinam_pos_id_y (VARCHAR(20))
+	,otsutstviya_po_uv_prichinam_m (VARCHAR(20))
+	,otsutstviya_po_uv_prichinam_y (VARCHAR(20))
+	,otsutstviya_po_uv_prichinam_pos_id_y (VARCHAR(20))
+	,povishenie_kvalif_m (VARCHAR(20))
+	,povishenie_kvalif_y (VARCHAR(20))
+	,povishenie_kvalif_pos_id_y (VARCHAR(20))
+	,prostoi_m (VARCHAR(20))
+	,prostoi_y (VARCHAR(20))
+	,prostoi_pos_id_y (VARCHAR(20))
+	,pererabotka_m (VARCHAR(20))
+	,pererabotka_y (VARCHAR(20))
+	,pererabotka_pos_id_y (VARCHAR(20))
+	,komandirovka_m (VARCHAR(20))
+	,komandirovka_y (VARCHAR(20))
+	,komandirovka_pos_id_y (VARCHAR(20))
+	,bolnichnii_bez_opl_m (VARCHAR(20))
+	,bolnichnii_bez_opl_y (VARCHAR(20))
+	,bolnichnii_bez_opl_pos_id_y (VARCHAR(20))
+	,uchebnii_otpusk_m (VARCHAR(20))
+	,uchebnii_otpusk_y (VARCHAR(20))
+	,uchebnii_otpusk_pos_id_y (VARCHAR(20))
+	,repl_days (VARCHAR(10))
+	,sovm_days (VARCHAR(10))
+	,fact_cnt (VARCHAR(11))
+	,pos_LOS_days (VARCHAR(10))
+	,len_of_svc_days (VARCHAR(10))
+	,pos_num (VARCHAR(11))
+	,work_y_with_boss (VARCHAR(10))
+	,len_of_svc_y_boss (VARCHAR(10))
+	,len_of_svc_y_manager (VARCHAR(10))
+	,pos_grade_num (VARCHAR(5))
+	,boss_i_pernr (VARCHAR(10))
+	,lvl_04_code (VARCHAR(10))
+	,action_x1_dt (VARCHAR(10))
+	,action_x3_dt (VARCHAR(10))
+	,action_y2_dt (VARCHAR(10))
+	,action_t1_dt (VARCHAR(10))
+	,action_t3_dt (VARCHAR(10))
+	,action_z7_dt (VARCHAR(10))
+	,action_x1_in_report_dt (VARCHAR(5))
+	,action_x3_in_report_dt (VARCHAR(5))
+	,action_y2_in_report_dt (VARCHAR(5))
+	,action_t1_in_report_dt (VARCHAR(5))
+	,action_t3_in_report_dt (VARCHAR(5))
+	,action_z7_in_report_dt (VARCHAR(5))
+	,education (VARCHAR(10))
+	,education_in_rd (VARCHAR(5))
+	,position_name (VARCHAR(150))
+	,TB_name (VARCHAR(250))
+	,fblock_oss (VARCHAR(5))
+	,et_pos_id (VARCHAR(10))
+	,type_pos_id (VARCHAR(10))
+	,org_id (VARCHAR(10))
+	,org_type_code (VARCHAR(10))
+	,podr_type_code (VARCHAR(5))
+	,org_level (VARCHAR(10))
+	,org_type_level (VARCHAR(5))
+	,town (VARCHAR(100))
+	,tb_num (VARCHAR(10))
+	,vsp_num (VARCHAR(10))
+	,gosb_num (VARCHAR(10))
+	,osb_num (VARCHAR(10))
+	,is_boss (VARCHAR(10))
+	,boss_pos_id (VARCHAR(10))
+	,type_pos_name (VARCHAR(80))
+	,pos_name (VARCHAR(1333))
+	,et_pos_name (VARCHAR(1333))
+	,balance_code (VARCHAR(10))
+	,start_date_fork (VARCHAR(10))
+	,stop_date_fork (VARCHAR(10))
+	,org_in_date (VARCHAR(10))
+	,is_urm (VARCHAR(10))
+	,is_archaic_pos (VARCHAR(10))
+	,pos_in_date (VARCHAR(10))
+	,pos_out_date (VARCHAR(10))
+	,boss_org_id (VARCHAR(10))
+	,is_on_trial (VARCHAR(10))
+	,age_y (VARCHAR(10))
+	,sber_LOS_days (VARCHAR(10))
+	,wrk_LOS_days (VARCHAR(10))
+	,gender (VARCHAR(20))
+	,trial_start_date (VARCHAR(10))
+	,trial_end_date (VARCHAR(10))
+	,staff_group (VARCHAR(50))
+	,is_agr_timed (VARCHAR(10))
+	,agr_end_date (VARCHAR(10))
+	,surv_type (VARCHAR(50))
+	,sber_LOS_cnt_days (VARCHAR(10))
+	,is_parental_leave (VARCHAR(10))
+	,staff_category (VARCHAR(50))
+	,is_long_abs (VARCHAR(10))
+	,boss_age_y (VARCHAR(10))
+	,avg_age_y_org_id (VARCHAR(30))
+	,avg_age_y_et_pos_id (VARCHAR(30))
+	,avg_sber_los_days_org_id (VARCHAR(30))
+	,avg_sber_los_days_et_pos_id (VARCHAR(30))
+	,diff_age_with_boss (VARCHAR(10))
+	,subord_cnt_m (VARCHAR(10))
+	,subord_cnt_prev_m (VARCHAR(10))
+	,subord_cnt_in_m (VARCHAR(10))
+	,subord_cnt_out_m (VARCHAR(10))
+	,subord_cnt_1y_max (VARCHAR(10))
+	,subord_cnt_1y_min (VARCHAR(10))
+	,subord_cnt_in_1y (VARCHAR(10))
+	,subord_cnt_out_1y (VARCHAR(10))
+	,action_date (VARCHAR(10))
+	,fired_total_in_report_dt (VARCHAR(5))
+	,fired_staff_in_report_dt (VARCHAR(5))
+
+
+FILE = "C:\Users\Burimskiy-VA\Documents\python_text.csv";
+	BEGIN LOADING "tst".burimskiyv_360_temp2
+		ERRORFILES tst, burimskiyv_360_temp2_ET
+		CHECKPOINT 100000;
+
+		INSERT INTO "tst".burimskiyv_360_temp2 (
+			report_date
+			,i_pernr
+			,pos_id
+			,cnt_penalty_m
+			,cnt_penalty_vig_m
+			,cnt_penalty_zam_m
+			,cnt_penalty_vzi_m
+			,cnt_penalty_y
+			,cnt_penalty_vig_y
+			,cnt_penalty_zam_y
+			,cnt_penalty_vzi_y
+			,cnt_penalty_all
+			,cnt_penalty_vig_all
+			,cnt_penalty_zam_all
+			,cnt_penalty_vzi_all
+			,cnt_penalty_pos_id_y
+			,cnt_penalty_vig_pos_id_y
+			,cnt_penalty_zam_pos_id_y
+			,cnt_penalty_vzi_pos_id_y
+			,plan_time_hours
+			,fact_time_hours
+			,plan_fact_time_hours
+			,otpusk_m
+			,otpusk_y
+			,otpusk_pos_id_y
+			,proguli_m
+			,proguli_y
+			,proguli_pos_id_y
+			,bolnichnii_m
+			,bolnichnii_y
+			,bolnichnii_pos_id_y
+			,otpusk_bez_opl_m
+			,otpusk_bez_opl_y
+			,otpusk_bez_opl_pos_id_y
+			,otpusk_po_uhodu_za_reb_m
+			,otpusk_po_uhodu_za_reb_y
+			,otpusk_po_uhodu_za_reb_pos_id_y
+			,neyavki_po_nev_prichinam_m
+			,neyavki_po_nev_prichinam_y
+			,neyavki_po_nev_prichinam_pos_id_y
+			,otsutstviya_po_uv_prichinam_m
+			,otsutstviya_po_uv_prichinam_y
+			,otsutstviya_po_uv_prichinam_pos_id_y
+			,povishenie_kvalif_m
+			,povishenie_kvalif_y
+			,povishenie_kvalif_pos_id_y
+			,prostoi_m
+			,prostoi_y
+			,prostoi_pos_id_y
+			,pererabotka_m
+			,pererabotka_y
+			,pererabotka_pos_id_y
+			,komandirovka_m
+			,komandirovka_y
+			,komandirovka_pos_id_y
+			,bolnichnii_bez_opl_m
+			,bolnichnii_bez_opl_y
+			,bolnichnii_bez_opl_pos_id_y
+			,uchebnii_otpusk_m
+			,uchebnii_otpusk_y
+			,uchebnii_otpusk_pos_id_y
+			,repl_days
+			,sovm_days
+			,fact_cnt
+			,pos_LOS_days
+			,len_of_svc_days
+			,pos_num
+			,work_y_with_boss
+			,len_of_svc_y_boss
+			,len_of_svc_y_manager
+			,pos_grade_num
+			,boss_i_pernr
+			,lvl_04_code
+			,action_x1_dt
+			,action_x3_dt
+			,action_y2_dt
+			,action_t1_dt
+			,action_t3_dt
+			,action_z7_dt
+			,action_x1_in_report_dt
+			,action_x3_in_report_dt
+			,action_y2_in_report_dt
+			,action_t1_in_report_dt
+			,action_t3_in_report_dt
+			,action_z7_in_report_dt
+			,education
+			,education_in_rd
+			,position_name
+			,TB_name
+			,fblock_oss
+			,et_pos_id
+			,type_pos_id
+			,org_id
+			,org_type_code
+			,podr_type_code
+			,org_level
+			,org_type_level
+			,town
+			,tb_num
+			,vsp_num
+			,gosb_num
+			,osb_num
+			,is_boss
+			,boss_pos_id
+			,type_pos_name
+			,pos_name
+			,et_pos_name
+			,balance_code
+			,start_date_fork
+			,stop_date_fork
+			,org_in_date
+			,is_urm
+			,is_archaic_pos
+			,pos_in_date
+			,pos_out_date
+			,boss_org_id
+			,is_on_trial
+			,age_y
+			,sber_LOS_days
+			,wrk_LOS_days
+			,gender
+			,trial_start_date
+			,trial_end_date
+			,staff_group
+			,is_agr_timed
+			,agr_end_date
+			,surv_type
+			,sber_LOS_cnt_days
+			,is_parental_leave
+			,staff_category
+			,is_long_abs
+			,boss_age_y
+			,avg_age_y_org_id
+			,avg_age_y_et_pos_id
+			,avg_sber_los_days_org_id
+			,avg_sber_los_days_et_pos_id
+			,diff_age_with_boss
+			,subord_cnt_m
+			,subord_cnt_prev_m
+			,subord_cnt_in_m
+			,subord_cnt_out_m
+			,subord_cnt_1y_max
+			,subord_cnt_1y_min
+			,subord_cnt_in_1y
+			,subord_cnt_out_1y
+			,action_date
+			,fired_total_in_report_dt
+			,fired_staff_in_report_dt
+		)
+		VALUES (
+			:report_date(DATE)
+			,:i_pernr(INTEGER)
+			,:pos_id(INTEGER)
+			,:cnt_penalty_m(INTEGER)
+			,:cnt_penalty_vig_m(INTEGER)
+			,:cnt_penalty_zam_m(INTEGER)
+			,:cnt_penalty_vzi_m(INTEGER)
+			,:cnt_penalty_y(INTEGER)
+			,:cnt_penalty_vig_y(INTEGER)
+			,:cnt_penalty_zam_y(INTEGER)
+			,:cnt_penalty_vzi_y(INTEGER)
+			,:cnt_penalty_all(INTEGER)
+			,:cnt_penalty_vig_all(INTEGER)
+			,:cnt_penalty_zam_all(INTEGER)
+			,:cnt_penalty_vzi_all(INTEGER)
+			,:cnt_penalty_pos_id_y(INTEGER)
+			,:cnt_penalty_vig_pos_id_y(INTEGER)
+			,:cnt_penalty_zam_pos_id_y(INTEGER)
+			,:cnt_penalty_vzi_pos_id_y(INTEGER)
+			,:plan_time_hours(DECIMAL(15,2))
+			,:fact_time_hours(DECIMAL(15,2))
+			,:plan_fact_time_hours(DECIMAL(15,2))
+			,:otpusk_m(BIGINT)
+			,:otpusk_y(BIGINT)
+			,:otpusk_pos_id_y(BIGINT)
+			,:proguli_m(BIGINT)
+			,:proguli_y(BIGINT)
+			,:proguli_pos_id_y(BIGINT)
+			,:bolnichnii_m(BIGINT)
+			,:bolnichnii_y(BIGINT)
+			,:bolnichnii_pos_id_y(BIGINT)
+			,:otpusk_bez_opl_m(BIGINT)
+			,:otpusk_bez_opl_y(BIGINT)
+			,:otpusk_bez_opl_pos_id_y(BIGINT)
+			,:otpusk_po_uhodu_za_reb_m(BIGINT)
+			,:otpusk_po_uhodu_za_reb_y(BIGINT)
+			,:otpusk_po_uhodu_za_reb_pos_id_y(BIGINT)
+			,:neyavki_po_nev_prichinam_m(BIGINT)
+			,:neyavki_po_nev_prichinam_y(BIGINT)
+			,:neyavki_po_nev_prichinam_pos_id_y(BIGINT)
+			,:otsutstviya_po_uv_prichinam_m(BIGINT)
+			,:otsutstviya_po_uv_prichinam_y(BIGINT)
+			,:otsutstviya_po_uv_prichinam_pos_id_y(BIGINT)
+			,:povishenie_kvalif_m(BIGINT)
+			,:povishenie_kvalif_y(BIGINT)
+			,:povishenie_kvalif_pos_id_y(BIGINT)
+			,:prostoi_m(BIGINT)
+			,:prostoi_y(BIGINT)
+			,:prostoi_pos_id_y(BIGINT)
+			,:pererabotka_m(BIGINT)
+			,:pererabotka_y(BIGINT)
+			,:pererabotka_pos_id_y(BIGINT)
+			,:komandirovka_m(BIGINT)
+			,:komandirovka_y(BIGINT)
+			,:komandirovka_pos_id_y(BIGINT)
+			,:bolnichnii_bez_opl_m(BIGINT)
+			,:bolnichnii_bez_opl_y(BIGINT)
+			,:bolnichnii_bez_opl_pos_id_y(BIGINT)
+			,:uchebnii_otpusk_m(BIGINT)
+			,:uchebnii_otpusk_y(BIGINT)
+			,:uchebnii_otpusk_pos_id_y(BIGINT)
+			,:repl_days(INTEGER)
+			,:sovm_days(INTEGER)
+			,:fact_cnt(DECIMAL(10,4))
+			,:pos_LOS_days(INTEGER)
+			,:len_of_svc_days(INTEGER)
+			,:pos_num(DECIMAL(10,6))
+			,:work_y_with_boss(INTEGER)
+			,:len_of_svc_y_boss(INTEGER)
+			,:len_of_svc_y_manager(INTEGER)
+			,:pos_grade_num(SMALLINT)
+			,:boss_i_pernr(INTEGER)
+			,:lvl_04_code(INTEGER)
+			,:action_x1_dt(DATE)
+			,:action_x3_dt(DATE)
+			,:action_y2_dt(DATE)
+			,:action_t1_dt(DATE)
+			,:action_t3_dt(DATE)
+			,:action_z7_dt(DATE)
+			,:action_x1_in_report_dt(SMALLINT)
+			,:action_x3_in_report_dt(SMALLINT)
+			,:action_y2_in_report_dt(SMALLINT)
+			,:action_t1_in_report_dt(SMALLINT)
+			,:action_t3_in_report_dt(SMALLINT)
+			,:action_z7_in_report_dt(SMALLINT)
+			,:education(INTEGER)
+			,:education_in_rd(SMALLINT)
+			,:position_name(VARCHAR(150))
+			,:TB_name(VARCHAR(250))
+			,:fblock_oss(SMALLINT)
+			,:et_pos_id(INTEGER)
+			,:type_pos_id(INTEGER)
+			,:org_id(INTEGER)
+			,:org_type_code(INTEGER)
+			,:podr_type_code(SMALLINT)
+			,:org_level(INTEGER)
+			,:org_type_level(SMALLINT)
+			,:town(VARCHAR(100))
+			,:tb_num(VARCHAR(10))
+			,:vsp_num(VARCHAR(10))
+			,:gosb_num(VARCHAR(10))
+			,:osb_num(VARCHAR(10))
+			,:is_boss(INTEGER)
+			,:boss_pos_id(INTEGER)
+			,:type_pos_name(VARCHAR(80))
+			,:pos_name(VARCHAR(1333))
+			,:et_pos_name(VARCHAR(1333))
+			,:balance_code(VARCHAR(10))
+			,:start_date_fork(DATE)
+			,:stop_date_fork(DATE)
+			,:org_in_date(DATE)
+			,:is_urm(INTEGER)
+			,:is_archaic_pos(INTEGER)
+			,:pos_in_date(DATE)
+			,:pos_out_date(DATE)
+			,:boss_org_id(INTEGER)
+			,:is_on_trial(INTEGER)
+			,:age_y(INTEGER)
+			,:sber_LOS_days(INTEGER)
+			,:wrk_LOS_days(INTEGER)
+			,:gender(VARCHAR(20))
+			,:trial_start_date(DATE)
+			,:trial_end_date(DATE)
+			,:staff_group(VARCHAR(50))
+			,:is_agr_timed(INTEGER)
+			,:agr_end_date(DATE)
+			,:surv_type(VARCHAR(50))
+			,:sber_LOS_cnt_days(INTEGER)
+			,:is_parental_leave(INTEGER)
+			,:staff_category(VARCHAR(50))
+			,:is_long_abs(INTEGER)
+			,:boss_age_y(INTEGER)
+			,:avg_age_y_org_id(FLOAT(30))
+			,:avg_age_y_et_pos_id(FLOAT(30))
+			,:avg_sber_los_days_org_id(FLOAT(30))
+			,:avg_sber_los_days_et_pos_id(FLOAT(30))
+			,:diff_age_with_boss(INTEGER)
+			,:subord_cnt_m(INTEGER)
+			,:subord_cnt_prev_m(INTEGER)
+			,:subord_cnt_in_m(INTEGER)
+			,:subord_cnt_out_m(INTEGER)
+			,:subord_cnt_1y_max(INTEGER)
+			,:subord_cnt_1y_min(INTEGER)
+			,:subord_cnt_in_1y(INTEGER)
+			,:subord_cnt_out_1y(INTEGER)
+			,:action_date(DATE)
+			,:fired_total_in_report_dt(SMALLINT)
+			,:fired_staff_in_report_dt(SMALLINT)
+		);
+	END LOADING;
+.LOGOFF;

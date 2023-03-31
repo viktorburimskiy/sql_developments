@@ -1,0 +1,25 @@
+.LOGON localhost/user, pass; 
+.SET SESSION CHARSET "UTF8";
+.IMPORT VARTEXT '|' FILE= "C:\Users\Burimskiy-VA\Documents\test.txt", skip = 1;
+.REPEAT *
+USING (
+	t_date VARCHAR(10)
+	, t_str VARCHAR(50)
+	, t_int VARCHAR(19)
+	,t_float VARCHAR(30))
+INSERT INTO "tst".burimskiyv_bteq_import
+	(t_date,
+	t_str,
+	t_int,
+	t_float)
+VALUES (
+	to_date(:t_date, 'yyyy-mm-dd'),
+	CASE WHEN :t_str = 'null' THEN NULL ELSE :t_str END,
+	CASE WHEN :t_int = 'null' THEN NULL ELSE Cast(:t_int as bigint) END,
+	Cast(:t_float as float(30))
+
+); 
+.LOGOFF
+.EXIT
+
+16:21 07.08.2020
