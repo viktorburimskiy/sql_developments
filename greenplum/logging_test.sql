@@ -47,18 +47,18 @@ execute on any;
 
 
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
+[gpadmin@mdw ~/]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
  dttm | message
 ------+---------
 (0 rows)
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select public.aeo_test_trans(2);'
+[gpadmin@mdw ~/]$ psql -c 'select public.aeo_test_trans(2);'
  aeo_test_trans
 ----------------
               0
 (1 row)
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
+[gpadmin@mdw ~/]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
             dttm            |          message
 ----------------------------+---------------------------
  2020-09-18 11:59:21.590816 | 1 BEGIN SUCCES step-1 i:2
@@ -67,13 +67,13 @@ execute on any;
  2020-09-18 11:59:21.590816 | 2 END SUCCES step-2 i:2
 (4 rows)
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select public.aeo_test_trans(1);'
+[gpadmin@mdw ~/]$ psql -c 'select public.aeo_test_trans(1);'
  aeo_test_trans
 ----------------
              -1
 (1 row)
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
+[gpadmin@mdw ~/]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
             dttm            |             message
 ----------------------------+---------------------------------
  2020-09-18 11:59:21.590816 | 1 BEGIN SUCCES step-1 i:2
@@ -86,13 +86,13 @@ execute on any;
  2020-09-18 12:00:11.738933 | 2 Error step-2:division by zero
 (8 rows)
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select public.aeo_test_trans(0);'
+[gpadmin@mdw ~/]$ psql -c 'select public.aeo_test_trans(0);'
  aeo_test_trans
 ----------------
              -1
 (1 row)
 
-[gpadmin@mdw ~/aniskevich1-eo]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
+[gpadmin@mdw ~/]$ psql -c 'select * from public.aeo_log_test order by 1,2;'
             dttm            |             message
 ----------------------------+---------------------------------
  2020-09-18 11:59:21.590816 | 1 BEGIN SUCCES step-1 i:2
