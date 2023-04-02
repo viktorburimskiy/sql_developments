@@ -144,5 +144,3 @@ select
 from generate_series(date '1900-01-01', date '9999-12-31', interval '1 day') as t(dt)
 order by dt;
 
---Сбор статистики
-perform tst.sys_table_analyze ('dim_calendar');
