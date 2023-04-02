@@ -28,9 +28,3 @@ where pc.relname = 'account_saldo_plan_oper_proc'				--имя схемы
 	and pn.nspname = 's_grnplm_ld_risk_ldgprisk_dirm_oprisk'	--имя таблицы
 	and format_type(a.atttypid, a.atttypmod) = 'text'			--тип заменяемого поля
 
-	
-ALTER TABLE s_grnplm_ld_risk_ldgprisk_dirm_oprisk.account_saldo_plan_oper_proc ALTER COLUMN "account_type" TYPE varchar;
-ALTER TABLE s_grnplm_ld_risk_ldgprisk_dirm_oprisk.account_saldo_plan_oper_proc ALTER COLUMN "account_type_sec" TYPE varchar;
-ALTER TABLE s_grnplm_ld_risk_ldgprisk_dirm_oprisk.account_saldo_plan_oper_proc ALTER COLUMN "id_loan_saldo" TYPE varchar;
-ALTER TABLE s_grnplm_ld_risk_ldgprisk_dirm_oprisk.account_saldo_plan_oper_proc ALTER COLUMN "id_loan_po" TYPE varchar;
-ALTER TABLE s_grnplm_ld_risk_ldgprisk_dirm_oprisk.account_saldo_plan_oper_proc ALTER COLUMN "day" TYPE varchar;
