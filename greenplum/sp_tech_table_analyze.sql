@@ -1,4 +1,4 @@
-create or replace function s_grnplm_as_salesntwrk_pcap_sn_data.sys_table_analyze(tbl "text")
+create or replace function public.sys_table_analyze(tbl "text")
 	returns void
 	language plpgsql
 	security definer 
@@ -8,7 +8,7 @@ as $$
        
 begin
 
-	execute 'analyze s_grnplm_as_salesntwrk_pcap_sn_data.' || tbl;
+	execute 'analyze public.' || tbl;
 
 	exception when others then
 

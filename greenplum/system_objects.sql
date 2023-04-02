@@ -9,15 +9,15 @@ select pg_size_pretty(pg_database_size(current_database()))
 	,pg_database_size(current_database()) as size_b
 	
 --размер таблицы на диске
-select pg_size_pretty(pg_relation_size('pcap_sn_data_layer.us_smsb1_data_state_log_buf'));
+select pg_size_pretty(pg_relation_size('public.us_smsb1_data_state_log_buf'));
 
 --размер таблицы+индексы на диске
-select pg_size_pretty(pg_total_relation_size('pcap_sn_data_layer.us_smsb1_data_state_log_buf'))
+select pg_size_pretty(pg_total_relation_size('public.us_smsb1_data_state_log_buf'))
 
 --сколько дискового пространства использует таблица (после недавнего применения VACUUM или ANALYZE - т.к. знаечние relpages обновляеться после этих команд (1 стр = 8kb))
 select relpages, pg_relation_filepath(oid)
 from pg_catalog.pg_class
-where relname='us_smsb1_data_state_log_buf'
+where relname='test'
 /*********************************************************************************************
 SKEW
 *********************************************************************************************/
@@ -124,7 +124,7 @@ left join
 	on sq.c_table_name = t.tablename
 where 1=1
 	--and t.tablename = 'us_smsb1_data_state_log_buf'
-	and t.schemaname in ('pcap_sn_us', 'pcap_sn_suo', 'pcap_sn_isu_rb', 'pcap_sn_data_layer')
+	and t.schemaname in ('public')
 
 --инфа по сжатию таблицы (данные есть, если в пользовательской таблице присутствую эти опции (секция WITH) )
 select 
@@ -162,7 +162,7 @@ left join pg_catalog.pg_stat_last_operation as pslo
 where 1=1
 	and pc.relkind in ('r', 's')
 	and pc.relstorage in ('h','a','c')
-	and pn.nspname in ('pcap_sn_us', 'pcap_sn_suo', 'pcap_sn_isu_rb', 'pcap_sn_data_layer')
+	and pn.nspname in ('public')
 order by pn.nspname, pc.relname
 
 -- статистика таблицы (стиатистика на основе данных таблицы)
