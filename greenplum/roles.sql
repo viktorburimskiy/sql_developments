@@ -1,16 +1,4 @@
-tplis-ahd000001.dev.df.sbrf.ru
-test
-	gpadmin	chengeme
-	user_drrb_pmd	user
-	user_drrb_pil	user
-
-select array_to_string(array(	select 's_grnplm_as_salesntwrk_pcap_sn_data.sys_table_analyze ( ''' || full_name || coalesce(' (' || column_list || ')', '') || ''')'
-								from s_grnplm_as_salesntwrk_pcap_sn_data.sys_tables_to_analyze
-								where is_enabled = true
-							)
-						, ';'||chr(10));
-						
-					
+			
     
 select 
        r."oid"
@@ -73,9 +61,9 @@ join pg_catalog.pg_roles as pr
 	on pr.oid = pc.relowner,
 unnest (coalesce(pc.relacl::text[], format('{%s=arwdDxt/%s}', pr.rolname, pr.rolname)::text[])) as acl,
 regexp_split_to_array(acl, '=|/') as s 
-where pn.nspname = 's_grnplm_ld_risk_ldgprisk_stg'		--схема
+where pn.nspname = 'test'		--схема
 	--and s[1] = 'r_grnplm_ld_risk_ldgprisk_stg_r'		--роль
-	and pc.relname = 'e_02_01_dtm_ekp_scoring_plan_oper_test2'
+	and pc.relname = 'test'
 	and pc.relkind ='r'
 	and not exists (select 1
 					from pg_catalog.pg_inherits pi1
@@ -108,7 +96,7 @@ join pg_catalog.pg_roles as pr
 	on pr.oid = pp.proowner,
 unnest (coalesce(pp.proacl::text[], format('{%s=arwdDxt/%s}', pr.rolname, pr.rolname)::text[])) as acl,
 regexp_split_to_array(acl, '=|/') as s 
-where proname = 'zzz_sys_etl_load_initiate'
+where proname = 'test'
 
 
 
@@ -126,7 +114,7 @@ join pg_catalog.pg_roles as pr
 unnest (coalesce(pp.proacl::text[], format('{%s=arwdDxt/%s}', pr.rolname, pr.rolname)::text[])) as acl,
 regexp_split_to_array(acl, '=|/') as s 
 where s[2] = 'arwdDxt'
-and pn.nspname = 's_grnplm_as_salesntwrk_pcap_sn_data'
+and pn.nspname = 'test'
 
 
 
