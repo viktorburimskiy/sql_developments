@@ -21,10 +21,10 @@ BEGIN
 	 * Description:
 	 *	Процедура загрузки таблицы TEST_FINAL в TEST_FULL
 	 * Input param:
-	 *  p_debug_mode - режим запуска (выполнять или выводить результат в output)
-	 *  p_schema_nm - имя схемы таблицы
-	 *  p_table_nm - имя таблицы
-	 *  p_cnt_part - кол-во партиций которое необходимо сохранять
+	 *  p_debug_mode    - режим запуска (выполнять или выводить результат в output)
+	 *  p_schema_nm     - имя схемы таблицы
+	 *  p_table_nm      - имя таблицы
+	 *  p_cnt_part      - кол-во партиций которое необходимо сохранять
 	 */
 
 	v_start_dttm := current_timestamp;

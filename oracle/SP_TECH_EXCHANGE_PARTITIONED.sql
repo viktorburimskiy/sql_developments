@@ -14,11 +14,11 @@ BEGIN
 	 * Description:
 	 *	Процедура выполняет преобразование не партиционированной таблицы FINAL в раздел партиции таблицы FULL
 	 * Input param:
-	 *  p_debug_mode - режим запуска (выполнять или выводить результат в output)
-	 *  p_schema_nm - имя схемы таблицы
-	 *  p_table_full_nm - имя таблицы FULL
-	 *  p_table_final_nm - имя таблицы FINAL
-	 * 	p_job_id - job_id витрины (значение по которому формируются партиции)
+	 *  p_debug_mode        - режим запуска (выполнять или выводить результат в output)
+	 *  p_schema_nm         - имя схемы таблицы
+	 *  p_table_full_nm     - имя таблицы FULL
+	 *  p_table_final_nm    - имя таблицы FINAL
+	 * 	p_job_id            - ид загрузки (unix_timestamp)
 	 */
 	
 	

@@ -12,9 +12,9 @@ BEGIN
 	 * Description:
 	 *	Процедура очистки таблицы
 	 * Input param:
-	 *  p_debug_mode - режим запуска (выполнять или выводить результат в output)
-	 *  p_schema_nm - имя схемы таблицы
-	 *  p_table_nm - имя таблицы
+	 *  p_debug_mode    - режим запуска (выполнять или выводить результат в output)
+	 *  p_schema_nm     - имя схемы таблицы
+	 *  p_table_nm      - имя таблицы
 	 */
 	
 	v_sql_txt := '

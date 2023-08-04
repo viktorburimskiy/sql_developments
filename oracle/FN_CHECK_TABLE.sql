@@ -14,9 +14,9 @@ BEGIN
 	 * Description:
 	 *	Функция проверки наличия таблицы
 	 * Input param:
-	 *  p_debug_mode - режим запуска (выполнять или выводить результат в output)
-	 *  p_schema_nm - имя схемы таблицы
-	 *  p_table_nm - имя таблицы (витрины)
+	 *  p_debug_mode    - режим запуска (выполнять или выводить результат в output)
+	 *  p_schema_nm     - имя схемы таблицы
+	 *  p_table_nm      - имя таблицы (витрины)
 	 */
 	
 	v_sql_txt := 'SELECT COUNT(1) cnt FROM ALL_TABLES WHERE OWNER = '''|| p_schema_nm || ''' AND TABLE_NAME = ''' || p_table_nm || '''';
