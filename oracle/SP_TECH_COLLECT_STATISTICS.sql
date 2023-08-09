@@ -11,21 +11,21 @@ BEGIN
 	
 	/*
 	 * Description:
-	 *	Процедура сбора статистики по таблице
+	 *	Процедура сбора статистики таблици по партиции
 	 * Input param:
-	 *  p_debug_mode - режим запуска (выполнять или выводить результат в output)
-	 *  p_schema_nm  - имя схемы таблицы
-	 *  p_table_nm   - имя таблицы
-	 *  p_job_id     - ид загрузки (unix_timestamp)
+	 *  p_debug_mode    - режим запуска (выполнять или выводить результат в output)
+	 *  p_schema_nm     - имя схемы таблицы
+	 *  p_table_nm      - имя таблицы
+   *  p_job_id        - ид загрузки (unix_timestamp)
 	 */
 
 	v_part_name := 'P' || p_job_id;
 	v_sql_txt := '
 		BEGIN
-			DBMS_STATS.GATHER_TABLE_STATS( ownname => ''' || p_schema_nm || '''
-							,tabname => ''' || p_table_nm || '''
-							,partname => ''' || v_part_name || '''
-							,estimate_percent => 10);
+			DBMS_STATS.GATHER_TABLE_STATS( ownname =>  '''''' || p_schema_nm || ''''''
+										  ,tabname =>  '''''' || p_table_nm  || ''''''
+										  ,partname => '''''' || v_part_name || ''''''
+										  ,estimate_percent => 10);
 		END;';
 
 	IF p_debug_mode THEN

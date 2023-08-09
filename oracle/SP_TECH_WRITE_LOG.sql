@@ -20,14 +20,14 @@ BEGIN
 	 * Description:
 	 *	Процедура записи лога
 	 * Input param:
-	 *  p_debug_mode - режим запуска (выполнять или выводить результат в output)
-	 * 	p_job_id - job_id виттрины
-	 * 	p_param_nm - параметры запуска процедуры витрины
-	 * 	p_step - выполняемый шаг
-	 * 	p_status_nm - результат запуска (OK/ERR: massege)
-	 * 	run_start_dttm - время начала
-	 * 	run_end_dttm - время окончание
-	 * 	row_cnt - кол-во обработанных строк (INSERT/UPDATE/DELETE)
+	 *  p_debug_mode    - режим запуска (выполнять или выводить результат в output)
+	 * 	p_job_id        - ид загрузки (unix_timestamp)
+	 * 	p_param_nm      - параметры запуска процедуры витрины
+	 * 	p_step          - выполняемый шаг
+	 * 	p_status_nm     - результат запуска (OK/ERR: massege)
+	 * 	run_start_dttm  - время начала
+	 * 	run_end_dttm    - время окончание
+	 * 	row_cnt         - кол-во обработанных строк (INSERT/UPDATE/DELETE)
 	 */
 
 	v_all_dttm := p_run_end_dttm - p_run_start_dttm;

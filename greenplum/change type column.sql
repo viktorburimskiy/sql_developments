@@ -24,7 +24,7 @@ left join pg_catalog.pg_attrdef ad
 	on ad.adrelid = a.attrelid
 	and ad.adnum = a.attnum
 	and a.atthasdef
-where pc.relname = 'account_saldo_plan_oper_proc'				--имя схемы
-	and pn.nspname = 's_grnplm_ld_risk_ldgprisk_dirm_oprisk'	--имя таблицы
+where pc.relname = 'oper_proc'				--имя схемы
+	and pn.nspname = 'rm_oprisk'	--имя таблицы
 	and format_type(a.atttypid, a.atttypmod) = 'text'			--тип заменяемого поля
 
