@@ -16,7 +16,7 @@ BEGIN
 	 *  p_debug_mode    - режим запуска (выполнять или выводить результат в output)
 	 *  p_schema_nm     - имя схемы таблицы
 	 *  p_table_nm      - имя таблицы
-   *  p_job_id        - ид загрузки (unix_timestamp)
+   	 *  p_job_id        - ид загрузки (unix_timestamp)
 	 */
 
 	v_part_name := 'P' || p_job_id;
