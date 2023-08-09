@@ -6,7 +6,7 @@ as $body$
 
 	/**
 	 * 	Description:
-	 * 		Функция сохранения зависимостей (вью) в таблицу s_grnplm_ld_risk_ldgprisk_drrb.sys_save_related_view.
+	 * 		Функция сохранения зависимостей (вью) в таблицу sys_save_related_view.
 	 * 	
 	 * 	Input:
 	 * 		i_debug_flag - флаг дебага
